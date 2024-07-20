@@ -28,12 +28,26 @@ const Posts = (props: any) => {
   const [data, setData] = useState(initialPostData);
   const { title, description } = props.data;
 
+  const createPost = (data: string) => {
+    const temp = {
+      username: "marvin",
+      thumbnail: "assets/images/user1.svg",
+      postIcon: "assets/images/sad.svg",
+      name: "Marvin McKinney",
+      timeStamp: "8mins ago • Edited",
+      post: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+      comments: 24,
+    };
+    temp.post = data;
+    setData((prev: any) => [...prev, temp]);
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>{title}</div>
       <div className={classes.description}>{description}</div>
       <div className={classes["create-post-container"]}>
-        <CreatePost />
+        <CreatePost createPost={createPost} />
       </div>
 
       {(data || []).map((res: any) => (
