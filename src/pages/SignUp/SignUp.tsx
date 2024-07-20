@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import classes from "./Login.module.css";
+import classes from "./SignUp.module.css";
 import Button from "../../components/Button/Button";
-import Logo from "../../assets/images/Logo.svg";
 
-const Login = (props: any) => {
-  const {
-    title = "WELCOME BACK",
-    description = "Log into your account",
-    showLogo = true,
-  } = props;
+const SignUp = (props: any) => {
+  const { title = "SIGN UP", description = "Create an account to continue" } =
+    props;
 
   const [data, setData] = useState<any>({
     email: "",
+    username: "",
     password: "",
   });
 
@@ -21,17 +18,25 @@ const Login = (props: any) => {
 
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
-      {showLogo && <img src={Logo} className={classes.logo} />}
       <div className={`${classes.container} width-100`}>
         <div className={classes.title}>{title}</div>
         <div className={classes.description}>{description}</div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Email or Username</div>
+          <div className={classes.label}>Email</div>
           <input
             type="text"
             className={classes.input}
             onChange={(e: any) => setFormValue(e)}
-            placeholder="Enter your email or username"
+            placeholder="Enter your email"
+          ></input>
+        </div>
+        <div className={classes["input-container"]}>
+          <div className={classes.label}>Username</div>
+          <input
+            type="text"
+            className={classes.input}
+            onChange={(e: any) => setFormValue(e)}
+            placeholder="Choose a preferred username"
           ></input>
         </div>
         <div className={classes["input-container"]}>
@@ -40,16 +45,16 @@ const Login = (props: any) => {
             type="text"
             className={classes.input}
             onChange={(e: any) => setFormValue(e)}
-            placeholder="Enter your password"
+            placeholder="Choose a strong password"
           ></input>
         </div>
-        <Button title="Login now" />
+        <Button title="Continue" />
         <div className={classes.registertext}>
-          Not registered yet? Register →
+          Already have an account? Login →
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
