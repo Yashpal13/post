@@ -4,20 +4,17 @@ import Button from "../../components/Button/Button";
 import Logo from "../../assets/images/Logo.svg";
 import Eye from "../../assets/images/eye.svg";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../App";
 
 const Login = (props: any) => {
-  const {
-    title = "WELCOME BACK",
-    description = "Log into your account",
-    isModal = false,
-  } = props;
-
+  const { title, description, isModal = false } = props;
   const [data, setData] = useState<any>({
     user: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(true);
   const navigate = useNavigate();
+  const context: any = useAuth();
 
   const setFormValue = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -28,17 +25,29 @@ const Login = (props: any) => {
   };
 
   const onSubmit = () => {
-    navigate("/post");
+    if (isModal) {
+      context.dispatch({ type: "login", payload: false });
+    } else {
+      navigate("/post");
+    }
   };
 
   const signUp = () => {
-    navigate("/sign-up");
+    if (isModal) {
+      context.dispatch({ type: "signup", payload: true });
+    } else {
+      navigate("/sign-up");
+    }
   };
 
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
       {!isModal && <img src={Logo} className={classes.logo} />}
-      <div className={`${classes.container} width-100`}>
+      <div
+        className={`${classes.container} width-100  ${
+          isModal ? classes.modalcontainer : null
+        }`}
+      >
         <div className={classes.title}>{title}</div>
         <div className={classes.description}>{description}</div>
         <div className={classes["input-container"]}>

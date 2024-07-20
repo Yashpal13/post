@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../App";
 
 const SignUp = (props: any) => {
-  const { isModal = false } = props;
+  const { isModal = false, title, description } = props;
   const [data, setData] = useState<any>({
     email: "",
     username: "",
@@ -33,8 +33,8 @@ const SignUp = (props: any) => {
           isModal ? classes.modalcontainer : null
         }`}
       >
-        <div className={classes.title}>SIGN UP</div>
-        <div className={classes.description}>Create an account to continue</div>
+        <div className={classes.title}>{title}</div>
+        <div className={classes.description}>{description}</div>
         <div className={classes["input-container"]}>
           <div className={classes.label}>Email</div>
           <input

@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
-              <Login />
+              <Login title="WELCOME BACK" description="Log into your account" />
             </div>
           </div>
         ),
@@ -27,7 +27,10 @@ const router = createBrowserRouter([
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
-              <SignUp />
+              <SignUp
+                title="SIGN UP"
+                description="Create an account to continue"
+              />
             </div>
           </div>
         ),
@@ -75,12 +78,20 @@ function Root() {
       <AuthConext.Provider value={{ state, dispatch }}>
         {state?.showLogin == true && (
           <Modal>
-            <Login isModal={true} />
+            <Login
+              title="WELCOME BACK"
+              description="Log into your account"
+              isModal={true}
+            />
           </Modal>
         )}
         {state?.showSignUp == true && (
           <Modal>
-            <SignUp isModal={true} />
+            <SignUp
+              isModal={true}
+              title="SIGN UP"
+              description="Create an account to continue"
+            />
           </Modal>
         )}
         <Outlet />
