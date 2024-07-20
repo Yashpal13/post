@@ -9,7 +9,7 @@ const Login = (props: any) => {
   const {
     title = "WELCOME BACK",
     description = "Log into your account",
-    showLogo = true,
+    isModal = false,
   } = props;
 
   const [data, setData] = useState<any>({
@@ -37,7 +37,7 @@ const Login = (props: any) => {
 
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
-      {showLogo && <img src={Logo} className={classes.logo} />}
+      {!isModal && <img src={Logo} className={classes.logo} />}
       <div className={`${classes.container} width-100`}>
         <div className={classes.title}>{title}</div>
         <div className={classes.description}>{description}</div>

@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Post.module.css";
 import Card from "../Card/Card";
 import dots from "../../assets/images/dots.svg";
@@ -6,7 +5,16 @@ import comment from "../../assets/images/comment.svg";
 import Emoji from "../Emoji/Emoji";
 
 const Post = (props: any) => {
-  const { thumbnail, name, timeStamp, post, comments, postIcon } = props;
+  const {
+    thumbnail,
+    name,
+    timeStamp,
+    post,
+    comments,
+    postIcon,
+    openLoginPage,
+  } = props;
+
   return (
     <Card>
       <div
@@ -21,7 +29,7 @@ const Post = (props: any) => {
             <div className={classes.timestamp}>{timeStamp}</div>
           </div>
         </div>
-        <div>
+        <div onClick={openLoginPage} className={classes.dots}>
           <img src={dots}></img>
         </div>
       </div>

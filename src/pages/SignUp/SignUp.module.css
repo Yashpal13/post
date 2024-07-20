@@ -58,3 +58,8 @@
   color: #c5c7ca;
   cursor: pointer;
 }
+
+.modalcontainer {
+  padding: 0px;
+  border: 0px;
+}
