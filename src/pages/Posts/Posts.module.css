@@ -1,0 +1,26 @@
+.container {
+  width: 700px;
+  margin: 25px auto;
+}
+
+.post-container {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 28px;
+  line-height: 33px;
+  color: #c5c7ca;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f8084;
+  margin-bottom: 40px;
+}
+
+.create-post-container {
+  margin-bottom: 16px;
+}
