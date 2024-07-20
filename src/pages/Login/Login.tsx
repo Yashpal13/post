@@ -28,7 +28,11 @@ const Login = (props: any) => {
   };
 
   const onSubmit = () => {
-    navigate('/post')
+    navigate("/post");
+  };
+
+  const signUp = () => {
+    navigate("/sign-up");
   };
 
   return (
@@ -59,6 +63,9 @@ const Login = (props: any) => {
               onChange={(e: any) => setFormValue(e)}
               placeholder="Enter your password"
               name="password"
+              value={
+                showPassword ? data.password : "*".repeat(data.password.length)
+              }
             ></input>
             <img
               src={Eye}
@@ -69,7 +76,10 @@ const Login = (props: any) => {
         </div>
         <Button title="Login now" onClick={onSubmit} />
         <div className={classes.registertext}>
-          Not registered yet? Register →
+          Not registered yet?{" "}
+          <span onClick={signUp} className={classes.signuptext}>
+            Register →
+          </span>
         </div>
       </div>
     </div>

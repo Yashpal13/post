@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./SignUp.module.css";
 import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = (props: any) => {
   const { title = "SIGN UP", description = "Create an account to continue" } =
@@ -11,9 +12,18 @@ const SignUp = (props: any) => {
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const setFormValue = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const login = () => {
+    navigate("/login");
+  };
+
+  const onSubmit = () => {
+    navigate("/login");
   };
 
   return (
@@ -48,9 +58,12 @@ const SignUp = (props: any) => {
             placeholder="Choose a strong password"
           ></input>
         </div>
-        <Button title="Continue" />
+        <Button title="Continue" onClick={onSubmit} />
         <div className={classes.registertext}>
-          Already have an account? Login →
+          Already have an account?{" "}
+          <span onClick={login} className={classes.logintext}>
+            Login →
+          </span>
         </div>
       </div>
     </div>

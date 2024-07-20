@@ -1,16 +1,7 @@
-import React, { useState } from "react";
-import Post from "./components/Post/Post";
 import Posts from "./pages/Posts/Posts";
 import Login from "./pages/Login/Login";
-import Modal from "./components/Modal/Modal";
 import SignUp from "./pages/SignUp/SignUp";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +19,17 @@ const router = createBrowserRouter([
         ),
       },
       { path: "post", element: <Posts /> },
+
+      {
+        path: "sign-up",
+        element: (
+          <div className="flex flex-col-vertical-center height-100">
+            <div style={{ width: "50%", maxWidth: "450px" }}>
+              <SignUp />
+            </div>
+          </div>
+        ),
+      },
       {
         path: "*",
         element: (
