@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import classes from "./Login.module.css";
 import Button from "../../components/Button/Button";
 import Logo from "../../assets/images/Logo.svg";
+import Eye from "../../assets/images/eye.svg";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props: any) => {
   const {
@@ -11,12 +13,22 @@ const Login = (props: any) => {
   } = props;
 
   const [data, setData] = useState<any>({
-    email: "",
+    user: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(true);
+  const navigate = useNavigate();
 
   const setFormValue = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const toggleVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const onSubmit = () => {
+    navigate('/post')
   };
 
   return (
@@ -32,18 +44,30 @@ const Login = (props: any) => {
             className={classes.input}
             onChange={(e: any) => setFormValue(e)}
             placeholder="Enter your email or username"
+            name="user"
           ></input>
         </div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Password</div>
-          <input
-            type="text"
-            className={classes.input}
-            onChange={(e: any) => setFormValue(e)}
-            placeholder="Enter your password"
-          ></input>
+          <div className="flex flex-row-space-between">
+            <div className={classes.label}>Password</div>
+            <div className={classes.forgetlabel}>Forgot password?</div>
+          </div>
+          <div className={classes["password-input"]}>
+            <input
+              type="text"
+              className={classes.input}
+              onChange={(e: any) => setFormValue(e)}
+              placeholder="Enter your password"
+              name="password"
+            ></input>
+            <img
+              src={Eye}
+              className={classes.passwordicon}
+              onClick={toggleVisibility}
+            ></img>
+          </div>
         </div>
-        <Button title="Login now" />
+        <Button title="Login now" onClick={onSubmit} />
         <div className={classes.registertext}>
           Not registered yet? Register →
         </div>

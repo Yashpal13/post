@@ -53,3 +53,21 @@
   color: #7f8084;
   margin-top: 12px;
 }
+
+.forgetlabel {
+  font-size: 12px;
+  line-height: 14px;
+  color: #c5c7ca;
+  margin-bottom: 10px;
+}
+
+.password-input {
+  position: relative;
+}
+
+.passwordicon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}

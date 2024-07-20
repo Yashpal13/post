@@ -24,9 +24,16 @@ const initialPostData: any = [
   },
 ];
 
-const Posts = (props: any) => {
+const initialData: any = {
+  title: "Hello Jane",
+  description:
+    "How are you doing today? Would you like to share something with the community 🤗",
+};
+
+const Posts = () => {
   const [data, setData] = useState(initialPostData);
-  const { title, description } = props.data;
+  const title = initialData.title;
+  const description = initialData.description;
 
   const createPost = (data: string) => {
     const temp = {
@@ -39,6 +46,7 @@ const Posts = (props: any) => {
       comments: 24,
     };
     temp.post = data;
+    temp.username = String(Date.now());
     setData((prev: any) => [...prev, temp]);
   };
 
