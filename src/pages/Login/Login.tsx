@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./Login.module.css";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../App";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const Login = (props: any) => {
   const { title, description, isModal = false } = props;
@@ -48,10 +48,10 @@ const Login = (props: any) => {
           isModal ? classes.modalcontainer : null
         }`}
       >
-        <div className={classes.title}>{title}</div>
-        <div className={classes.description}>{description}</div>
+        <div className={`${classes.title} font-500`}>{title}</div>
+        <div className={`${classes.description} font-600`}>{description}</div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Email or Username</div>
+          <div className={`${classes.label} font-500`}>Email or Username</div>
           <input
             type="text"
             className={classes.input}
@@ -62,8 +62,10 @@ const Login = (props: any) => {
         </div>
         <div className={classes["input-container"]}>
           <div className="flex flex-row-space-between">
-            <div className={classes.label}>Password</div>
-            <div className={classes.forgetlabel}>Forgot password?</div>
+            <div className={`${classes.label} font-500`}>Password</div>
+            <div className={`${classes.forgetlabel} font-500`}>
+              Forgot password?
+            </div>
           </div>
           <div className={classes["password-input"]}>
             <input
@@ -84,7 +86,7 @@ const Login = (props: any) => {
           </div>
         </div>
         <Button title="Login now" onClick={onSubmit} />
-        <div className={classes.registertext}>
+        <div className={`${classes.registertext} font-500`}>
           Not registered yet?{" "}
           <span onClick={signUp} className={classes.signuptext}>
             Register →

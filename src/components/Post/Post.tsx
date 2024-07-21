@@ -23,12 +23,12 @@ const Post = (props: any) => {
             <img src={thumbnail}></img>
           </div>
           <div>
-            <div className={classes.name}>{name}</div>
-            <div className={classes.timestamp}>{timeStamp}</div>
+            <div className={`${classes.name} font-500`}>{name}</div>
+            <div className={`${classes.timestamp} font-500`}>{timeStamp}</div>
           </div>
         </div>
         <div onClick={openLoginPage} className={classes.dots}>
-          <img src={'/assets/images/dots.svg'}></img>
+          <img src={"/assets/images/dots.svg"}></img>
         </div>
       </div>
       <div className={`${classes.post} flex`}>
@@ -36,8 +36,13 @@ const Post = (props: any) => {
         <div className={classes["post-text"]}>{post}</div>
       </div>
       <div>
-        <img className={classes["comments-images"]} src={'/assets/images/comment.svg'}></img>
-        <span className={classes["comments-text"]}>{comments} Comments</span>
+        <img
+          className={classes["comments-images"]}
+          src={"/assets/images/comment.svg"}
+        ></img>
+        <span className={`${classes["comments-text"]} font-500`}>
+          {comments} Comments
+        </span>
       </div>
     </Card>
   );
