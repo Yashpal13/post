@@ -19,8 +19,10 @@ const Login = (props: Args) => {
   const [showPassword, setShowPassword] = useState<Boolean>(true);
   const navigate = useNavigate();
   const context: any = useAuth();
+  const [error, setError] = useState<any>({});
 
   const setFormValue = (e: any) => {
+    setError({});
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -28,11 +30,27 @@ const Login = (props: Args) => {
     setShowPassword((prev) => !prev);
   };
 
+  const validateForm = (data: any) => {
+    const error: any = {};
+    if (!data.user.length) {
+      error.user = "Username/Email is required !!";
+    }
+
+    if (!data.password.length) {
+      error.password = "Password is required !!";
+    }
+    return error;
+  };
+
   const onSubmit = () => {
-    if (isModal) {
-      context.dispatch({ type: "login", payload: false });
-    } else {
-      navigate("/post");
+    const error = validateForm(data);
+    setError(error);
+    if (Object.keys(error).length == 0) {
+      if (isModal) {
+        context.dispatch({ type: "login", payload: false });
+      } else {
+        navigate("/post");
+      }
     }
   };
 
@@ -65,6 +83,7 @@ const Login = (props: Args) => {
             placeholder="Enter your email or username"
             name="user"
           ></input>
+          {error.user && <span className={classes.error}>{error.user}</span>}
         </div>
         <div className={classes["input-container"]}>
           <div className="flex flex-row-space-between">
@@ -84,6 +103,9 @@ const Login = (props: Args) => {
                 showPassword ? data.password : "*".repeat(data.password.length)
               }
             ></input>
+            {error.password && (
+              <span className={classes.error}>{error.password}</span>
+            )}
             <img
               src={"/assets/images/eye.svg"}
               className={classes.passwordicon}
