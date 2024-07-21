@@ -1,7 +1,5 @@
 import classes from "./Post.module.css";
 import Card from "../Card/Card";
-import dots from "../../assets/images/dots.svg";
-import comment from "../../assets/images/comment.svg";
 import Emoji from "../Emoji/Emoji";
 
 const Post = (props: any) => {
@@ -30,7 +28,7 @@ const Post = (props: any) => {
           </div>
         </div>
         <div onClick={openLoginPage} className={classes.dots}>
-          <img src={dots}></img>
+          <img src={'/assets/images/dots.svg'}></img>
         </div>
       </div>
       <div className={`${classes.post} flex`}>
@@ -38,7 +36,7 @@ const Post = (props: any) => {
         <div className={classes["post-text"]}>{post}</div>
       </div>
       <div>
-        <img className={classes["comments-images"]} src={comment}></img>
+        <img className={classes["comments-images"]} src={'/assets/images/comment.svg'}></img>
         <span className={classes["comments-text"]}>{comments} Comments</span>
       </div>
     </Card>

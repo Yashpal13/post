@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "login",
+        path: "",
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
-              <Login />
+              <Login title="WELCOME BACK" description="Log into your account" />
             </div>
           </div>
         ),

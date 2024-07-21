@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
 import Button from "../../components/Button/Button";
-import Logo from "../../assets/images/Logo.svg";
-import Eye from "../../assets/images/eye.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../App";
 
@@ -42,7 +40,9 @@ const Login = (props: any) => {
 
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
-      {!isModal && <img src={Logo} className={classes.logo} />}
+      {!isModal && (
+        <img src={"/assets/images/Logo.svg"} className={classes.logo} />
+      )}
       <div
         className={`${classes.container} width-100  ${
           isModal ? classes.modalcontainer : null
@@ -77,7 +77,7 @@ const Login = (props: any) => {
               }
             ></input>
             <img
-              src={Eye}
+              src={"/assets/images/eye.svg"}
               className={classes.passwordicon}
               onClick={toggleVisibility}
             ></img>
