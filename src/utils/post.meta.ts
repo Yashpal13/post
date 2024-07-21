@@ -27,9 +27,9 @@ export const initialData: any = {
 
 export const defaultPostData = {
   username: "",
-  thumbnail: "assets/images/user1.svg",
+  thumbnail: "assets/images/newuser.png",
   postIcon: "assets/images/wave.png",
-  name: "User1",
+  name: "New User",
   timeStamp: "",
   post: "",
   comments: 0,

@@ -1,10 +1,14 @@
 import React from "react";
 import classes from "./ContainerAuth.module.css";
 
-const ContainerAuth = (props: any) => {
+interface Args {
+  children: JSX.Element | JSX.Element[];
+}
+
+const ContainerAuth = (props: Args) => {
   return (
     <div className="flex flex-col-vertical-center height-100">
-      <div style={{ width: "50%", maxWidth: "450px" }}>{props.children}</div>
+      <div className={classes.container}>{props.children}</div>
     </div>
   );
 };

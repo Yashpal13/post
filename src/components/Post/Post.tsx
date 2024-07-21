@@ -1,8 +1,19 @@
 import classes from "./Post.module.css";
 import Card from "../Card/Card";
 import Emoji from "../Emoji/Emoji";
+import { ReactNode } from "react";
 
-const Post = (props: any) => {
+interface Args {
+  thumbnail: string;
+  name: string;
+  timeStamp: string;
+  post: string;
+  comments: ReactNode;
+  postIcon: string;
+  openLoginPage: React.MouseEventHandler;
+}
+
+const Post = (props: Args) => {
   const {
     thumbnail,
     name,
@@ -20,7 +31,7 @@ const Post = (props: any) => {
       >
         <div className="flex flex-row-space-between">
           <div className={classes.image}>
-            <img src={thumbnail}></img>
+            <img src={thumbnail} className={"width-100 height-100"}></img>
           </div>
           <div>
             <div className={`${classes.name} font-500`}>{name}</div>

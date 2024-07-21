@@ -4,13 +4,19 @@ import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 
-const Login = (props: any) => {
+interface Args {
+  title: string;
+  description: string;
+  isModal?: Boolean;
+}
+
+const Login = (props: Args) => {
   const { title, description, isModal = false } = props;
-  const [data, setData] = useState<any>({
+  const [data, setData] = useState<{ user: string; password: string }>({
     user: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState<Boolean>(true);
   const navigate = useNavigate();
   const context: any = useAuth();
 
