@@ -91,7 +91,7 @@ const Login = (props: Args) => {
             ></img>
           </div>
         </div>
-        <Button title="Login now" onClick={onSubmit} />
+        <Button text="Login now" onClick={onSubmit} />
         <div className={`${classes.registertext} font-500`}>
           Not registered yet?{" "}
           <span onClick={signUp} className={classes.signuptext}>

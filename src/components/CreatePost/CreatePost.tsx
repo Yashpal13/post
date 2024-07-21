@@ -37,7 +37,7 @@ const CreatePost = (props: Args) => {
       </div>
       <div className={"flex flex-row-end"}>
         <div className={classes.btn}>
-          <Button title="Post" onClick={addPost} />
+          <Button text="Post" onClick={addPost} />
         </div>
       </div>
     </Card>
