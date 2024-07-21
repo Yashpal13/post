@@ -1,7 +1,13 @@
 import React from "react";
 import classes from "./Modal.module.css";
 
-const Modal = (props: any) => {
+interface Args {
+  children: React.ReactNode;
+  onToggle: React.MouseEventHandler;
+  isOpen?: Boolean;
+}
+
+const Modal = (props: Args) => {
   const { children, isOpen = true, onToggle } = props;
 
   return (
@@ -15,7 +21,7 @@ const Modal = (props: any) => {
           className={`${classes.closeicon} flex flex-row-end`}
           onClick={onToggle}
         >
-          <img src={'/assets/images/close.svg'}></img>
+          <img src={"/assets/images/close.svg"}></img>
         </div>
         <div className="width-100">{children}</div>
       </div>

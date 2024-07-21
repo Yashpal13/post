@@ -4,7 +4,13 @@ import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 
-const SignUp = (props: any) => {
+interface Args {
+  title: string;
+  description: string;
+  isModal?: Boolean;
+}
+
+const SignUp = (props: Args) => {
   const { isModal = false, title, description } = props;
   const [data, setData] = useState<any>({
     email: "",

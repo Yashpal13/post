@@ -4,7 +4,11 @@ import Card from "../Card/Card";
 import Button from "../Button/Button";
 import Emoji from "../Emoji/Emoji";
 
-const CreatePost = (props: any) => {
+interface Args {
+  createPost: Function;
+}
+
+const CreatePost = (props: Args) => {
   const textRef: any = useRef("");
   const { createPost } = props;
 
@@ -13,7 +17,7 @@ const CreatePost = (props: any) => {
   }, []);
 
   const addPost = () => {
-    const text = textRef.current.value.trim();
+    const text: string = textRef.current.value.trim();
     if (text) {
       createPost(text);
       textRef.current.value = "";

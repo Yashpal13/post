@@ -12,15 +12,15 @@ import { useAuth } from "../../context/AuthContextProvider";
 const Posts = () => {
   const [data, setData] = useState(initialPostData);
   const context: any = useAuth();
-  const title = initialData.title;
-  const description = initialData.description;
+  const title: string = initialData.title;
+  const description: string = initialData.description;
 
   const createPost = (data: string) => {
     const temp = { ...defaultPostData };
     temp.post = data;
     temp.username = String(Date.now());
     temp.comments = Math.floor(Math.random() * 10);
-    temp.timeStamp = `${Math.floor(Math.random() * 60)} mins ago`;
+    temp.timeStamp = `${Math.floor(Math.random() * 60)}mins ago`;
     setData((prev: any) => [temp, ...prev]);
   };
 

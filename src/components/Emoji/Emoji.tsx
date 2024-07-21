@@ -1,7 +1,10 @@
-import React from "react";
 import classes from "./Emoji.module.css";
 
-const Emoji = (props: any) => {
+interface Args {
+  image: string;
+}
+
+const Emoji = (props: Args) => {
   const { image } = props;
 
   return (
