@@ -33,7 +33,7 @@ const Login = (props: Args) => {
   const validateForm = (data: any) => {
     const error: any = {};
     if (!data.user.length) {
-      error.user = "Username/Email is required !!";
+      error.user = "Email/Username is required !!";
     }
 
     if (!data.password.length) {
