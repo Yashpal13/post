@@ -31,7 +31,11 @@ const ShowPost = (props: Args) => {
       >
         <div className="flex flex-row-space-between">
           <div className={classes.image}>
-            <img src={thumbnailImage} className={"width-100 height-100"}></img>
+            <img
+              src={thumbnailImage}
+              className={"width-100 height-100"}
+              alt="thumbnail"
+            ></img>
           </div>
           <div>
             <div className={`${classes.name} font-500`}>{name}</div>
@@ -39,7 +43,7 @@ const ShowPost = (props: Args) => {
           </div>
         </div>
         <div onClick={openLoginPage} className={classes.dots}>
-          <img src={"/assets/images/dots.svg"}></img>
+          <img src={"/assets/images/dots.svg"} alt="menu"></img>
         </div>
       </div>
       <div className={`${classes.post} flex`}>
@@ -50,6 +54,7 @@ const ShowPost = (props: Args) => {
         <img
           className={classes["comments-images"]}
           src={"/assets/images/comment.svg"}
+          alt="comment"
         ></img>
         <span className={`${classes["comments-text"]} font-500`}>
           {comments} Comments
