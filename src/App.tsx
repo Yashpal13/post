@@ -1,4 +1,4 @@
-import Posts from "./pages/Posts/Posts";
+import Post from "./pages/Post/Post";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
           </ContainerAuth>
         ),
       },
-      { path: "post", element: <Posts /> },
+      { path: "post", element: <Post /> },
       {
         path: "sign-up",
         element: (
@@ -71,9 +71,9 @@ function Root() {
       {context.state?.showSignUp == true && (
         <Modal onToggle={onModalToggle}>
           <SignUp
-            isModal={true}
             title="SIGN UP"
             description="Create an account to continue"
+            isModal={true}
           />
         </Modal>
       )}

@@ -1,4 +1,4 @@
-import classes from "./Post.module.css";
+import classes from "./ShowPost.module.css";
 import Card from "../Card/Card";
 import Emoji from "../Emoji/Emoji";
 import { ReactNode } from "react";
@@ -13,7 +13,7 @@ interface Args {
   openLoginPage: React.MouseEventHandler;
 }
 
-const Post = (props: Args) => {
+const ShowPost = (props: Args) => {
   const {
     thumbnail,
     name,
@@ -59,4 +59,4 @@ const Post = (props: Args) => {
   );
 };
 
-export default Post;
+export default ShowPost;
