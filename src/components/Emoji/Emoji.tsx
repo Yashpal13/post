@@ -9,7 +9,7 @@ const Emoji = (props: Args) => {
 
   return (
     <div className={classes["comment-image"]}>
-      <img className={classes.icon} src={image}></img>
+      <img className={classes.icon} src={image} alt="emoji"></img>
     </div>
   );
 };

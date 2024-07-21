@@ -65,7 +65,11 @@ const Login = (props: Args) => {
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
       {!isModal && (
-        <img src={"/assets/images/Logo.svg"} className={classes.logo} />
+        <img
+          src={"/assets/images/Logo.svg"}
+          className={classes.logo}
+          alt="logo"
+        />
       )}
       <div
         className={`${classes.container} width-100  ${
@@ -110,6 +114,7 @@ const Login = (props: Args) => {
               src={"/assets/images/eye.svg"}
               className={classes.passwordicon}
               onClick={toggleVisibility}
+              alt="show/hide password"
             ></img>
           </div>
         </div>

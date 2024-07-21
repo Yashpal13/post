@@ -21,7 +21,7 @@ const Modal = (props: Args) => {
           className={`${classes.closeicon} flex flex-row-end`}
           onClick={onToggle}
         >
-          <img src={"/assets/images/close.svg"}></img>
+          <img src={"/assets/images/close.svg"} alt="close"></img>
         </div>
         <div className="width-100">{children}</div>
       </div>
