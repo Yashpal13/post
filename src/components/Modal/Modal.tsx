@@ -3,9 +3,7 @@ import classes from "./Modal.module.css";
 import close from "../../assets/images/close.svg";
 
 const Modal = (props: any) => {
-  const { children, isOpen = true } = props;
-
-  const onClose = () => {};
+  const { children, isOpen = true, onToggle } = props;
 
   return (
     <div
@@ -14,7 +12,10 @@ const Modal = (props: any) => {
       }`}
     >
       <div className={classes["modal-content"]}>
-        <div className={`${classes.closeicon} flex flex-row-end`}>
+        <div
+          className={`${classes.closeicon} flex flex-row-end`}
+          onClick={onToggle}
+        >
           <img src={close}></img>
         </div>
         <div className="width-100">{children}</div>
