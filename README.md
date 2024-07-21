@@ -1,6 +1,6 @@
 # Atlys App
 
-A User can Perform Login and Sign Up and User can view and create/add new Posts.
+A user can log in to their account or sign up to create a new one. Additionally, users can view existing posts and create new posts.
 
 ## Demo
 
