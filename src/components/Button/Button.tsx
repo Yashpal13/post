@@ -2,15 +2,15 @@ import React from "react";
 import classes from "./Button.module.css";
 
 interface Args {
-  title: string;
+  text: string;
   onClick: React.MouseEventHandler;
 }
 
 const Button = (props: Args) => {
-  const { title, onClick } = props;
+  const { text, onClick } = props;
   return (
     <div className={`${classes.btn} font-500`} onClick={onClick}>
-      {title}
+      {text}
     </div>
   );
 };

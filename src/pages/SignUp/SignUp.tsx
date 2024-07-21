@@ -71,7 +71,7 @@ const SignUp = (props: Args) => {
             placeholder="Choose a strong password"
           ></input>
         </div>
-        <Button title="Continue" onClick={onSubmit} />
+        <Button text="Continue" onClick={onSubmit} />
         <div className={`${classes.registertext} font-500`}>
           Already have an account?{" "}
           <span onClick={onSubmit} className={classes.logintext}>

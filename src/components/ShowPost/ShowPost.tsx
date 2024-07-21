@@ -1,26 +1,26 @@
-import classes from "./Post.module.css";
+import classes from "./ShowPost.module.css";
 import Card from "../Card/Card";
 import Emoji from "../Emoji/Emoji";
 import { ReactNode } from "react";
 
 interface Args {
-  thumbnail: string;
+  thumbnailImage: string;
   name: string;
   timeStamp: string;
   post: string;
   comments: ReactNode;
-  postIcon: string;
+  emojiIcon: string;
   openLoginPage: React.MouseEventHandler;
 }
 
-const Post = (props: Args) => {
+const ShowPost = (props: Args) => {
   const {
-    thumbnail,
+    thumbnailImage,
     name,
     timeStamp,
     post,
     comments,
-    postIcon,
+    emojiIcon,
     openLoginPage,
   } = props;
 
@@ -31,7 +31,7 @@ const Post = (props: Args) => {
       >
         <div className="flex flex-row-space-between">
           <div className={classes.image}>
-            <img src={thumbnail} className={"width-100 height-100"}></img>
+            <img src={thumbnailImage} className={"width-100 height-100"}></img>
           </div>
           <div>
             <div className={`${classes.name} font-500`}>{name}</div>
@@ -43,7 +43,7 @@ const Post = (props: Args) => {
         </div>
       </div>
       <div className={`${classes.post} flex`}>
-        <Emoji image={postIcon} />
+        <Emoji image={emojiIcon} />
         <div className={classes["post-text"]}>{post}</div>
       </div>
       <div>
@@ -59,4 +59,4 @@ const Post = (props: Args) => {
   );
 };
 
-export default Post;
+export default ShowPost;

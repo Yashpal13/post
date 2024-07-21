@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Post from "../../components/Post/Post";
-import classes from "./Posts.module.css";
+import ShowPost from "../../components/ShowPost/ShowPost";
+import classes from "./Post.module.css";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import {
   initialData,
@@ -9,7 +9,7 @@ import {
 } from "../../utils/post.meta";
 import { useAuth } from "../../context/AuthContextProvider";
 
-const Posts = () => {
+const Post = () => {
   const [data, setData] = useState(initialPostData);
   const context: any = useAuth();
   const title: string = initialData.title;
@@ -38,11 +38,11 @@ const Posts = () => {
 
       {(data || []).map((res: any) => (
         <div className={classes["post-container"]} key={res.username}>
-          <Post {...res} openLoginPage={openLoginPage} />
+          <ShowPost {...res} openLoginPage={openLoginPage} />
         </div>
       ))}
     </div>
   );
 };
 
-export default Posts;
+export default Post;
