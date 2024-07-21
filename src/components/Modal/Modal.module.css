@@ -17,7 +17,7 @@
   border: 1px solid #ffffff;
   background-color: #27292d;
   margin: auto;
-  padding: 20px;
+  padding: 20px 20px 35px 20px;
   border: 1px solid #888;
   width: 30%;
 }
@@ -28,5 +28,4 @@
 
 .closeicon {
   cursor: pointer;
-  margin-bottom: 4px;
 }

@@ -33,10 +33,10 @@ const SignUp = (props: any) => {
           isModal ? classes.modalcontainer : null
         }`}
       >
-        <div className={classes.title}>{title}</div>
-        <div className={classes.description}>{description}</div>
+        <div className={`${classes.title} font-500`}>{title}</div>
+        <div className={`${classes.description} font-600`}>{description}</div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Email</div>
+          <div className={`${classes.label} font-500`}>Email</div>
           <input
             type="text"
             className={classes.input}
@@ -45,7 +45,7 @@ const SignUp = (props: any) => {
           ></input>
         </div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Username</div>
+          <div className={`${classes.label} font-500`}>Username</div>
           <input
             type="text"
             className={classes.input}
@@ -54,7 +54,7 @@ const SignUp = (props: any) => {
           ></input>
         </div>
         <div className={classes["input-container"]}>
-          <div className={classes.label}>Password</div>
+          <div className={`${classes.label} font-500`}>Password</div>
           <input
             type="text"
             className={classes.input}
@@ -63,7 +63,7 @@ const SignUp = (props: any) => {
           ></input>
         </div>
         <Button title="Continue" onClick={onSubmit} />
-        <div className={classes.registertext}>
+        <div className={`${classes.registertext} font-500`}>
           Already have an account?{" "}
           <span onClick={onSubmit} className={classes.logintext}>
             Login →

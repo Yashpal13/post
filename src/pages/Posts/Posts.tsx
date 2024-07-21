@@ -28,7 +28,7 @@ const Posts = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.title}>{title}</div>
+      <div className={`${classes.title} font-500`}>{title}</div>
       <div className={classes.description}>{description}</div>
       <div className={classes["create-post-container"]}>
         <CreatePost createPost={createPost} />

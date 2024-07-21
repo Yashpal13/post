@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import classes from "./CreatePost.module.css";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
-// import comment from "/assets/images/comment.png";
 import Emoji from "../Emoji/Emoji";
 
 const CreatePost = (props: any) => {
@@ -23,9 +22,9 @@ const CreatePost = (props: any) => {
 
   return (
     <Card>
-      <div className={classes.title}>Create Post</div>
+      <div className={`${classes.title} font-500`}>Create Post</div>
       <div className={`${classes.input} flex`}>
-        <Emoji image={'/assets/images/comment.png'} />
+        <Emoji image={"/assets/images/comment.png"} />
         <textarea
           className={classes.textarea}
           placeholder="How are you feeling today?"
