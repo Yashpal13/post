@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./SignUp.module.css";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../App";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const SignUp = (props: any) => {
   const { isModal = false, title, description } = props;

@@ -2,8 +2,9 @@ import Posts from "./pages/Posts/Posts";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { createContext, useContext, useReducer } from "react";
 import Modal from "./components/Modal/Modal";
+import ContainerAuth from "./components/ContainerAuth/ContainerAuth";
+import AuthContextProvider, { useAuth } from "./context/AuthContextProvider";
 
 const router = createBrowserRouter([
   {
@@ -13,95 +14,70 @@ const router = createBrowserRouter([
       {
         path: "",
         element: (
-          <div className="flex flex-col-vertical-center height-100">
-            <div style={{ width: "50%", maxWidth: "450px" }}>
-              <Login title="WELCOME BACK" description="Log into your account" />
-            </div>
-          </div>
+          <ContainerAuth>
+            <Login title="WELCOME BACK" description="Log into your account" />
+          </ContainerAuth>
         ),
       },
       { path: "post", element: <Posts /> },
-
       {
         path: "sign-up",
         element: (
-          <div className="flex flex-col-vertical-center height-100">
-            <div style={{ width: "50%", maxWidth: "450px" }}>
-              <SignUp
-                title="SIGN UP"
-                description="Create an account to continue"
-              />
-            </div>
-          </div>
+          <ContainerAuth>
+            <SignUp
+              title="SIGN UP"
+              description="Create an account to continue"
+            />
+          </ContainerAuth>
         ),
       },
       {
         path: "*",
         element: (
-          <div className="flex flex-col-vertical-center height-100">
-            <div style={{ width: "50%", maxWidth: "450px" }}>
-              <Login title="WELCOME BACK" description="Log into your account" />
-            </div>
-          </div>
+          <ContainerAuth>
+            <Login title="WELCOME BACK" description="Log into your account" />
+          </ContainerAuth>
         ),
       },
     ],
   },
 ]);
-const AuthConext = createContext({});
-const initialState = {
-  showLogin: false,
-  showSignUp: false,
-};
-
-function reducer(state: any, action: any) {
-  switch (action.type) {
-    case "login":
-      return { showLogin: action.payload, showSignUp: false };
-    case "signup":
-      return { showSignUp: action.payload, showLogin: false };
-    case "close_auth":
-      return { showSignUp: false, showLogin: false };
-  }
-}
-
-export function useAuth() {
-  return useContext(AuthConext);
-}
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthContextProvider>
+      <RouterProvider router={router} />{" "}
+    </AuthContextProvider>
+  );
 }
 
 function Root() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const context: any = useAuth();
   const onModalToggle = () => {
-    dispatch({ type: "close_auth" });
+    context.dispatch({ type: "close_auth" });
   };
 
   return (
     <div className="height-100">
-      <AuthConext.Provider value={{ state, dispatch }}>
-        {state?.showLogin == true && (
-          <Modal onToggle={onModalToggle}>
-            <Login
-              title="WELCOME BACK"
-              description="Log into your account"
-              isModal={true}
-            />
-          </Modal>
-        )}
-        {state?.showSignUp == true && (
-          <Modal onToggle={onModalToggle}>
-            <SignUp
-              isModal={true}
-              title="SIGN UP"
-              description="Create an account to continue"
-            />
-          </Modal>
-        )}
-        <Outlet />
-      </AuthConext.Provider>
+      {context.state?.showLogin == true && (
+        <Modal onToggle={onModalToggle}>
+          <Login
+            title="WELCOME BACK"
+            description="Log into your account"
+            isModal={true}
+          />
+        </Modal>
+      )}
+      {context.state?.showSignUp == true && (
+        <Modal onToggle={onModalToggle}>
+          <SignUp
+            isModal={true}
+            title="SIGN UP"
+            description="Create an account to continue"
+          />
+        </Modal>
+      )}
+      <Outlet />
     </div>
   );
 }

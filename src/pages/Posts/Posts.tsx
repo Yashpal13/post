@@ -7,7 +7,7 @@ import {
   initialPostData,
   defaultPostData,
 } from "../../utils/post.meta";
-import { useAuth } from "../../App";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const Posts = () => {
   const [data, setData] = useState(initialPostData);
@@ -16,10 +16,12 @@ const Posts = () => {
   const description = initialData.description;
 
   const createPost = (data: string) => {
-    const temp = defaultPostData;
+    const temp = { ...defaultPostData };
     temp.post = data;
     temp.username = String(Date.now());
-    setData((prev: any) => [...prev, temp]);
+    temp.comments = Math.floor(Math.random() * 10);
+    temp.timeStamp = `${Math.floor(Math.random() * 60)} mins ago`;
+    setData((prev: any) => [temp, ...prev]);
   };
 
   const openLoginPage = () => {

@@ -6,7 +6,7 @@ export const initialPostData: any = [
     name: "Theresa Webb",
     timeStamp: "5mins ago",
     post: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-    comments: 24,
+    comments: 10,
   },
   {
     username: "marvin",
@@ -15,7 +15,7 @@ export const initialPostData: any = [
     name: "Marvin McKinney",
     timeStamp: "8mins ago • Edited",
     post: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-    comments: 24,
+    comments: 13,
   },
 ];
 
@@ -26,11 +26,11 @@ export const initialData: any = {
 };
 
 export const defaultPostData = {
-  username: "marvin",
+  username: "",
   thumbnail: "assets/images/user1.svg",
-  postIcon: "assets/images/wave.svg",
-  name: "Marvin McKinney",
-  timeStamp: "8mins ago • Edited",
-  post: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-  comments: 24,
+  postIcon: "assets/images/wave.png",
+  name: "User1",
+  timeStamp: "",
+  post: "",
+  comments: 0,
 };
