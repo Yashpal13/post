@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "login",
+        path: "",
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: (
           <div className="flex flex-col-vertical-center height-100">
             <div style={{ width: "50%", maxWidth: "450px" }}>
-              <Login />
+              <Login title="WELCOME BACK" description="Log into your account" />
             </div>
           </div>
         ),
@@ -60,6 +60,8 @@ function reducer(state: any, action: any) {
       return { showLogin: action.payload, showSignUp: false };
     case "signup":
       return { showSignUp: action.payload, showLogin: false };
+    case "close_auth":
+      return { showSignUp: false, showLogin: false };
   }
 }
 
@@ -73,11 +75,15 @@ export default function App() {
 
 function Root() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const onModalToggle = () => {
+    dispatch({ type: "close_auth" });
+  };
+
   return (
     <div className="height-100">
       <AuthConext.Provider value={{ state, dispatch }}>
         {state?.showLogin == true && (
-          <Modal>
+          <Modal onToggle={onModalToggle}>
             <Login
               title="WELCOME BACK"
               description="Log into your account"
@@ -86,7 +92,7 @@ function Root() {
           </Modal>
         )}
         {state?.showSignUp == true && (
-          <Modal>
+          <Modal onToggle={onModalToggle}>
             <SignUp
               isModal={true}
               title="SIGN UP"
