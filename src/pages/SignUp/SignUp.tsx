@@ -28,6 +28,9 @@ const SignUp = (props: any) => {
 
   return (
     <div className="flex flex-col-vertical-center height-100 width-100">
+      {!isModal && (
+        <img src={"/assets/images/Logo.svg"} className={classes.logo} />
+      )}
       <div
         className={`${classes.container} width-100 ${
           isModal ? classes.modalcontainer : null
